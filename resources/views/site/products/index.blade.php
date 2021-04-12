@@ -2,6 +2,19 @@
 
 
 @section('content')
+    <div class="collapse navbar-collapse" id="navbar-menu">
+        <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+            <li class="nav-item active"><a class="nav-link" href="#">Home</a></li><
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="dropdown megamenu-fw">
+                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Our Service</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+
     <div class="products-box">
         <div class="container">
             <div class="row">

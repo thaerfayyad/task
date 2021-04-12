@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="43f31731-04bb-4d7e-91ff-4fc96064e831" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/site/include/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/site/include/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/site/products/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/site/products/productDetails.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Site/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/site/include/navbar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/site/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/include/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/site/products/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/site/products/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,12 +153,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/site/products" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Site" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\task\app\Http\Controllers\Site" />
       <recent name="C:\xampp\htdocs\task\resources\views\site\products" />
       <recent name="C:\xampp\htdocs\sales\resources\views\dashboard" />
       <recent name="C:\xampp\htdocs\sales\public\uploads\user_images" />
@@ -188,7 +191,7 @@
       <workItem from="1617803165607" duration="6266000" />
       <workItem from="1617976109487" duration="10671000" />
       <workItem from="1618219562627" duration="882000" />
-      <workItem from="1618220573555" duration="11658000" />
+      <workItem from="1618220573555" duration="13570000" />
     </task>
     <servers />
   </component>

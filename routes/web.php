@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('site.products.index.');
-});
+
 
 //Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'Site\HomeController@index')->name('home');
+Route::get('/', 'Site\HomeController@index')->name('home');
+
 
 Route::resource('/products','Site\ProductController');
