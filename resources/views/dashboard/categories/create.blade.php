@@ -9,8 +9,8 @@
             <h1>Categories</h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i>dashboard</a></li>
-                <li><a href="{{ route('dashboard.categories.index') }}"> Categories</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i>dashboard</a></li>
+                <li><a href="{{ route('categories.index') }}"> Categories</a></li>
                 <li class="active">Add</li>
             </ol>
         </section>
@@ -27,7 +27,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.categories.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('categories.store') }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         {{ method_field('post') }}

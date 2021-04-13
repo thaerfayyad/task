@@ -205,12 +205,8 @@
                             <li class="user-footer">
 
 
-{{--                                <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();--}}
-{{--                                                 document.getElementById('logout-form').submit();">@lang('site.logout')</a>--}}
+                                <a href="{{ route('admin.logout') }}" class="btn btn-default btn-flat" >Log Out</a>
 
-{{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--                                    @csrf--}}
-{{--                                </form>--}}
 
                             </li>
                         </ul>

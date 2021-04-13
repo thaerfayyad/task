@@ -13,10 +13,10 @@
         </div>
 
         <ul class="sidebar-menu" data-widget="tree">
-            <li><a href="{{route('dashboard.index')}}"><i class="fa fa-th"></i><span>dashboard</span></a></li>
-            <li><a href="{{route('dashboard.users.index')}}"><i class="fa fa-th"></i><span>users</span></a></li>
-            <li><a href="{{ route('dashboard.categories.index') }}"><i class="fa fa-th"></i><span>categories</span></a></li>
-            <li><a href="{{ route('dashboard.products.index') }}"><i class="fa fa-th"></i><span>products</span></a></li>
+            <li><a href="{{route('dashboard')}}"><i class="fa fa-th"></i><span>dashboard</span></a></li>
+            <li><a href="{{route('users.index')}}"><i class="fa fa-th"></i><span>users</span></a></li>
+            <li><a href="{{ route('categories.index') }}"><i class="fa fa-th"></i><span>categories</span></a></li>
+            <li><a href="{{ route('products.index') }}"><i class="fa fa-th"></i><span>products</span></a></li>
 
         </ul>
 

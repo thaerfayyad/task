@@ -9,7 +9,7 @@
             <h1>categories</h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> dashboard</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> dashboard</a></li>
                 <li class="active">categories</li>
             </ol>
         </section>
@@ -22,7 +22,7 @@
 
                     <h3 class="box-title" style="margin-bottom: 15px">categories <small>{{$categories->total()}}</small></h3>
 
-                    <form action="{{ route('dashboard.categories.index') }}" method="get">
+                    <form action="{{ route('categories.index') }}" method="get">
 
                         <div class="row">
 
@@ -34,7 +34,7 @@
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> search</button>
 
 
-                                    <a href="{{ route('dashboard.categories.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>add</a>
+                                    <a href="{{ route('categories.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>add</a>
 
                             </div>
 
@@ -65,12 +65,12 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $category->name }}</td>
-                                    <td><a href="{{ route('dashboard.products.index', ['category_id' => $category->id]) }}" class="btn btn-primary btn-sm">Related  Products</a></td>
+                                    <td><a href="{{ route('products.index', ['category_id' => $category->id]) }}" class="btn btn-primary btn-sm">Related  Products</a></td>
                                     <td>{{ $category->description }}</td>
                                     <td>
 
-                                            <a href="{{ route('dashboard.categories.edit', $category->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>edit</a>
-                                             <form action="{{ route('dashboard.categories.destroy', $category->id) }}" method="post" style="display: inline-block">
+                                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>edit</a>
+                                             <form action="{{ route('categories.destroy', $category->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}
                                                 <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> delete</button>

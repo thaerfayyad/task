@@ -5,12 +5,10 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laratrust\Traits\LaratrustUserTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-    use LaratrustUserTrait; // add this trait to your user model
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name','last_name', 'email', 'password','image'
+        'name', 'email', 'password'
     ];
 
     /**
@@ -29,7 +27,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    protected $appends = ['image_path'];
+
 
 
 
@@ -41,22 +39,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function getFirstNameAttribute($value)
-    {
-        return ucfirst($value);
-
-    }//end of get first name
-
-    public function getLastNameAttribute($value)
-    {
-        return ucfirst($value);
-
-    }//end of get last name
-
-    public function getImagePathAttribute()
-    {
-        return asset('uploads/user_images/' . $this->image);
-
-    }
 }

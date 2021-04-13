@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="nav-item active"><a class="nav-link" href="{{route('home')}}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+{{--                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>--}}
                     <li class="nav-item "><a class="nav-link" href="{{route('products.index')}}">Products</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
@@ -27,8 +27,8 @@
                             <li><a href="shop-detail.html">Shop Detail</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="service.html">Our Service</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('get.users.signup')}}">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Sign in</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -36,7 +36,7 @@
             <!-- Start Atribute Navigation -->
             <div class="attr-nav">
                 <ul>
-                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+
                     <li class="side-menu"><a href="#">
                             <i class="fa fa-shopping-bag"></i>
                             <span class="badge">3</span>

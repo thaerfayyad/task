@@ -9,7 +9,7 @@
             <h1>products</h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> dashboard</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> dashboard</a></li>
                 <li class="active">products</li>
             </ol>
         </section>
@@ -22,7 +22,7 @@
 
                     <h3 class="box-title" style="margin-bottom: 15px"> products  <small> {{count($products)}}</small></h3>
 
-                    <form action="{{ route('dashboard.products.index') }}" method="get">
+                    <form action="{{ route('products.index') }}" method="get">
 
                         <div class="row">
 
@@ -42,7 +42,7 @@
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>search</button>
 
-                                    <a href="{{ route('dashboard.products.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
+                                    <a href="{{ route('products.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add</a>
 
                             </div>
 

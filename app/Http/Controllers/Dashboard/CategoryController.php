@@ -64,16 +64,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $rules = [];
+        $request->validate([
+            'name'     => 'required',
+            'description'  => 'required',
 
-        foreach (config('translatable.locales') as $locale) {
+        ]);
 
-            $rules += [$locale . '.name' => ['required', Rule::unique('category_translations', 'name')->ignore($category->id, 'category_id')]];
-            $rules += [$locale . '.description' => ['required', Rule::unique('category_translations', 'description')->ignore($category->id, 'category_id')]];
-
-        }
-
-        $request->validate($rules);
 
         $category->update($request->all());
         session()->flash('success',__('site.update_successfully'));

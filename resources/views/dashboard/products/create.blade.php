@@ -7,8 +7,8 @@
             <h1>products</h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> dashboard</a></li>
-                <li><a href="{{ route('dashboard.products.index') }}"> products</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> dashboard</a></li>
+                <li><a href="{{ route('products.index') }}"> products</a></li>
                 <li class="active">Add</li>
             </ol>
         </section>
@@ -24,7 +24,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.products.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         {{ method_field('post') }}
