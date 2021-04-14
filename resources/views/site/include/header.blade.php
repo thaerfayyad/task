@@ -39,7 +39,8 @@
 
                     <li class="side-menu"><a href="#">
                             <i class="fa fa-shopping-bag"></i>
-                            <span class="badge">{{ session()->has('cart') ? session()->get('cart')->totalQty : '0'}}</span>
+                            <span class="badge"></span>
+{{--                            {{ session()->has('cart') ? session()->get('cart') : '0'}}--}}
                         </a></li>
                 </ul>
             </div>

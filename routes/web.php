@@ -15,8 +15,9 @@ Route::name('web.')->group(function (){
     Route::get('/', 'Site\HomeController@index')->name('home');
 
     Route::resource('/products','Site\ProductController');
-    Route::get('/add-cart/{product}','Site\ProductController@addCart')->name('add.cart');
+    Route::get('/add-cart/{id}','Site\ProductController@addToCart')->name('add.cart');
     Route::get('/shopping-cart/','Site\ProductController@shoppingCart')->name('shopping.cart');
+    Route::get('/shopping-cart/{id}','Site\ProductController@deleteCart')->name('deleteCart');
 
 
     Route::get('/send/{id}','Site\ProductController@send')->name('send.pdf');

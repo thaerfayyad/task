@@ -21,39 +21,46 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($cart as $item)
+                            @if(session()->has('success'))
+                                <div class="alert alert-success"> {{ session()->get('success') }}</div>
+                            @endif
+                            @if(count($carts) > 0)
+
+                                @foreach($carts as $cart)
                             <tr>
 
                                 <td class="thumbnail-img">
                                     <a href="#">
-                                        <img class="img-fluid" src="site/images/img-pro-01.jpg" alt="" />
+                                        <img class="img-fluid" src="{{asset('uploads/product_images').'/'.$cart['image']}}" alt="" />
                                     </a>
                                 </td>
                                 <td class="name-pr">
                                     <a href="#">
-                                   {{$prodct['name']}}
+                                        {{$cart['name']}}
                                     </a>
                                 </td>
                                 <td class="price-pr">
-                                    <p>{{$prodct['sale_price']}}</p>
+                                    <p>{{$cart['price']}}</p>
                                 </td>
                                 <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
                                 <td class="total-pr">
-                                    <p>{{$prodct['quantity']}}</p>
+                                    <p>{{$cart['quantity']}}</p>
                                 </td>
                                 <td class="remove-pr">
-                                    <a href="#">
+                                    <a href="{{route('web.deleteCart',$cart['id'])}}">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>
 
                             </tr>
-                            @endforeach
+                                @endforeach
+                            @else
+                                <td > <h3 class="text-center well">there are no Cart  yet</h3></td>
+                            @endif
+
 
 
                             </tbody>
-{{--                            @else--}}
-{{--                                <p>there are no products in the cart</p>--}}
 
                         </table>
 

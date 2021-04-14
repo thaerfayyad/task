@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('site.products.index',compact('products'));
+        return view('site.products.index', compact('products'));
     }
 
     /**
@@ -36,7 +36,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,19 +47,19 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
     {
         $products = Product::all();
-        return view('site.products.productDetails',compact('product','products'));
+        return view('site.products.productDetails', compact('product', 'products'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -78,48 +78,82 @@ class ProductController extends Controller
     {
         //
     }
-    public function addCart(Product $product)
-    {
-        if(session()->has('cart')){
-            $cart  = new Cart(session()->get('cart'));
-
-        } else {
-            $cart = new Cart();
-        }
-        $cart->add($product);
-//        dd($cart);
-        session()->put('cart');
-        return redirect()->route('web.products.index')->with('success' , 'Product was added successfully');
-    }
-
     public function shoppingCart()
     {
-        if(session()->has('cart')) {
-            $cart  = new Cart(session()->get('cart'));
-        }else {
-            $cart  = null;
-        }
-        dd($cart);
-        return view('site.products.cart',compact('cart'));
+//        session()->flush();
+
+        $carts = session()->get('cart');
+//        dd($carts);
+        return view('site.products.cart', compact('carts'));
     }
 
-    public function send($id)
+    public function addToCart($id)
+    {
+        $product = Product::find($id);
+
+        if(!$product) {
+
+            abort(404);
+
+        }
+
+        $cart = session()->get('cart');
+
+        // if cart is empty then this the first product
+        if(!$cart) {
+
+            $cart = [
+                $id => [
+                    "id" => $product->id,
+                    "name" => $product->name,
+                    "quantity" => 1,
+                    "description" =>$product->description,
+                    "price" => $product->sale_price,
+                    "image" => $product->image
+                ]
+            ];
+
+            session()->put('cart', $cart);
+            session()->save();
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+
+        // if cart not empty then check if this product exist then increment quantity
+        if(isset($cart[$id])) {
+
+            $cart[$id]['quantity']++;
+
+            session()->put('cart', $cart);
+            session()->save();
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+
+        }
+
+        // if item not exist in cart then add to cart with quantity = 1
+        $cart[$id] = [
+            "id" => $product->id,
+            "name" => $product->name,
+            "quantity" => 1,
+            "description" =>$product->description,
+            "price" => $product->sale_price,
+            "image" => $product->image
+        ];
+
+        session()->put('cart', $cart);
+        session()->save();
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+    public function deleteCart($id)
     {
 
         $product = Product::find($id);
-        $data = [
-            'name' => $product->name,
-            'description' => $product->description,
-            'created_at' => $product->created_at,
-            'image' => $product->image,
-            'sale_price' => $product->sale_price,
+        $id = $product['id'];
 
-        ];
-        $pdf = PDF::loadView('site.products.pdf', $data);
-        $pdf ->save(public_path('uploads/pdf/').$product->id.'.pdf');
-        Mail::to($product->name)->send(new SendMail($product));
-
-        return $pdf->stream('document.pdf' );
+        $cart = session()->get('cart');
+        unset($cart[$id]);
+        session()->put('cart', $cart);
+        session()->save();
+        return redirect()->back()->with('success', 'Product deleted from cart successfully!');
     }
-
 }
