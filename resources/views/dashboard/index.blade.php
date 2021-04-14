@@ -71,7 +71,7 @@
                         <div class="inner">
                             <h3>order</h3>
 
-                            <p>@lang('site.users')</p>
+                            <p>Order</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>

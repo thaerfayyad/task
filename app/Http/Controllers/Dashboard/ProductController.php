@@ -23,7 +23,7 @@ class ProductController extends Controller
 
         $products = Product::when($request->search, function ($q) use ($request) {
 
-            return $q->whereTranslationLike('name', '%' . $request->search . '%');
+            return $q->where('name', '%' . $request->search . '%');
 
         })->when($request->category_id, function ($q) use ($request) {
 

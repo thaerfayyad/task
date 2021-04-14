@@ -21,10 +21,7 @@
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('web.shopping.cart')}}">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                            <li><a href="shop-detail.html">Shop Detail</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('web.get.users.signup')}}">Sign Up</a></li>
@@ -33,17 +30,7 @@
             </div>
             <!-- /.navbar-collapse -->
 
-            <!-- Start Atribute Navigation -->
-            <div class="attr-nav">
-                <ul>
 
-                    <li class="side-menu"><a href="#">
-                            <i class="fa fa-shopping-bag"></i>
-                            <span class="badge"></span>
-{{--                            {{ session()->has('cart') ? session()->get('cart') : '0'}}--}}
-                        </a></li>
-                </ul>
-            </div>
             <!-- End Atribute Navigation -->
         </div>
         <!-- Start Side Menu -->

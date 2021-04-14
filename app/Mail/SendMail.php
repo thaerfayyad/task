@@ -10,15 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
+    public $product ;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($product)
     {
-        //
+        $this->product = $product ;
     }
 
     /**
@@ -28,6 +29,8 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('your product details ')->view('mails.productSend')
+            ->attach(public_path('uploads.pdf').$this->product->id.'.pdf')
+            ->with(['product'=>$this->product]);
     }
 }

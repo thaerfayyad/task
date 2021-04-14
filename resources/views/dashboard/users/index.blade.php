@@ -6,11 +6,11 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.users')</h1>
+            <h1>user</h1>
 
             <ol class="breadcrumb">
-                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-                <li class="active">@lang('site.users')</li>
+                <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i>dashboard</a></li>
+                <li class="active">Users</li>
             </ol>
         </section>
 
@@ -20,21 +20,18 @@
 
                 <div class="box-header with-border">
 
-                    <h3 class="box-title" style="margin-bottom: 15px">users <small>{{$users->total()}}</small></h3>
+                    <h3 class="box-title" style="margin-bottom: 15px">users <small>{{count($users)}}</small></h3>
 
-                    <form action="{{ route('dashboard.users.index') }}" method="get">
+                    <form action="{{ route('users.index') }}" method="get">
 
                         <div class="row">
 
                             <div class="col-md-4">
-                                <input type="text" name="search" class="form-control" placeholder="@lang('site.search')" value="{{ request()->search }}">
+                                <input type="text" name="search" class="form-control" placeholder="search" value="{{ request()->search }}">
                             </div>
 
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> @lang('site.search')</button>
-
-
-                                    <a href="{{ route('dashboard.users.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> @lang('site.add')</a>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> search</button>
 
                             </div>
 
@@ -52,10 +49,8 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>first_name</th>
-                                <th>last_name</th>
+                                <th>name</th>
                                 <th>email</th>
-                                <th>image</th>
                                 <th>action</th>
                             </tr>
                             </thead>
@@ -64,19 +59,17 @@
                             @foreach ($users as $index=>$user)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $user->first_name }}</td>
-                                    <td>{{ $user->last_name }}</td>
+                                    <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td><img src="{{ $user->image_path }}" style="width: 100px;" class="img-thumbnail" alt=""></td>
-                                    <td>
+                                     <td>
 
-                                            <a href="{{ route('dashboard.users.edit', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('site.edit')</a>
+                                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> edit</a>
 
 
-                                            <form action="{{ route('dashboard.users.destroy', $user->id) }}" method="post" style="display: inline-block">
+                                            <form action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline-block">
                                                 {{ csrf_field() }}
                                                 {{ method_field('delete') }}
-                                                <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                                <button type="submit" class="btn btn-danger delete btn-sm"><i class="fa fa-trash"></i> delete</button>
                                             </form><!-- end of form -->
 
                                     </td>

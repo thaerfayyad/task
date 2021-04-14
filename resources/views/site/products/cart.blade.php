@@ -40,7 +40,7 @@
                                     </a>
                                 </td>
                                 <td class="price-pr">
-                                    <p>{{$cart['price']}}</p>
+                                    <p>$ {{$cart['price']}}</p>
                                 </td>
                                 <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
                                 <td class="total-pr">
@@ -68,23 +68,7 @@
                 </div>
             </div>
 
-            <div class="row my-5">
-                <div class="col-lg-6 col-sm-6">
-                    <div class="coupon-box">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control" placeholder="Enter your coupon code" aria-label="Coupon code" type="text">
-                            <div class="input-group-append">
-                                <button class="btn btn-theme" type="button">Apply Coupon</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="update-box">
-                        <input value="Update Cart" type="submit">
-                    </div>
-                </div>
-            </div>
+
 
             <div class="row my-5">
                 <div class="col-lg-8 col-sm-12"></div>
@@ -119,7 +103,7 @@
                         </div>
                         <hr> </div>
                 </div>
-                <div class="col-12 d-flex shopping-box"><a href="checkout.html" class="ml-auto btn hvr-hover">Checkout</a> </div>
+                <div class="col-12 d-flex shopping-box"><a href="{{route('web.checkout',$cart['price'])}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
             </div>
 
         </div>

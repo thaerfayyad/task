@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Exports\ProductsExport;
 use App\Http\Controllers\Controller;
 use App\Mail\SendMail;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
 class ProductController extends Controller
@@ -56,28 +58,31 @@ class ProductController extends Controller
         return view('site.products.productDetails', compact('product', 'products'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function send($id)
     {
-        //
+        $product = Product::find($id);
+        $data = [
+            'name' => $product->name,
+            'description' => $product->description,
+            'sale_price' => $product->sale_price,
+            'image' => $product->image,
+            'created_at' => $product->created_at,
+
+        ];
+        $pdf = PDF::loadView('site.products.pdf', $data);
+        $pdf->save(public_path('uploads/pdf/').$product->name.'.pdf');
+        Mail::to('example@email.com')->send(new SendMail($product));
+        return $pdf->stream($product->id.'.pdf');
+
+
+    }
+    public function excel(Request $request)
+    {
+
+        return (new ProductsExport)->move('product'.date('y-m-d').'xlsx','uploads/excel/');
     }
 
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
-    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function shoppingCart()
     {
 //        session()->flush();

@@ -49,7 +49,7 @@
             @include('partials._errors')
 
             <div class="form-group has-feedback">
-                <input type="email" name="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
 

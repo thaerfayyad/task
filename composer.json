@@ -22,7 +22,8 @@
         "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^1.6",
         "phpoffice/phpword": "^0.18.1",
-        "santigarcor/laratrust": "^6.3"
+        "santigarcor/laratrust": "^6.3",
+        "stripe/stripe-php": "^7.77"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
