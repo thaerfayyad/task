@@ -35,8 +35,8 @@
                         </p>
                         <div class="price-box-bar">
                             <div class="cart-and-bay-btn">
-                                <a class="btn hvr-hover" data-fancybox-close="" href="#">Buy New</a>
-                                <a class="btn hvr-hover" data-fancybox-close="" href="#">Add to cart</a>
+                                <a class="btn hvr-hover" data-fancybox-close="" href="#">Buy Now</a>
+                                <a class="btn hvr-hover" target="_blank" data-fancybox-close="" href="{{route('web.send.pdf',$product->id)}}}">send</a>
                             </div>
                         </div>
 

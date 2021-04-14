@@ -14,20 +14,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item active"><a class="nav-link" href="{{route('home')}}">Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{{route('web.home')}}">Home</a></li>
 {{--                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>--}}
-                    <li class="nav-item "><a class="nav-link" href="{{route('products.index')}}">Products</a></li>
+                    <li class="nav-item "><a class="nav-link" href="{{route('web.products.index')}}">Products</a></li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
                         <ul class="dropdown-menu">
-                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="{{route('web.shopping.cart')}}">Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
                             <li><a href="my-account.html">My Account</a></li>
                             <li><a href="wishlist.html">Wishlist</a></li>
                             <li><a href="shop-detail.html">Shop Detail</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('get.users.signup')}}">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('web.get.users.signup')}}">Sign Up</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact-us.html">Sign in</a></li>
                 </ul>
             </div>
@@ -39,7 +39,7 @@
 
                     <li class="side-menu"><a href="#">
                             <i class="fa fa-shopping-bag"></i>
-                            <span class="badge">3</span>
+                            <span class="badge">{{ session()->has('cart') ? session()->get('cart')->totalQty : '0'}}</span>
                         </a></li>
                 </ul>
             </div>

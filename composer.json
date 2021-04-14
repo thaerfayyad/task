@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3",
         "astrotomic/laravel-translatable": "^11.9",
+        "carlos-meneses/laravel-mpdf": "^2.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -18,7 +19,9 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
+        "maatwebsite/excel": "^3.1",
         "mcamara/laravel-localization": "^1.6",
+        "phpoffice/phpword": "^0.18.1",
         "santigarcor/laratrust": "^6.3"
     },
     "require-dev": {

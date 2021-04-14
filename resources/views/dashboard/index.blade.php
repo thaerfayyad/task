@@ -7,10 +7,10 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.dashboard')</h1>
+            <h1>Dashboard</h1>
 
             <ol class="breadcrumb">
-                <li class="active"><i class="fa fa-dashboard"></i> {{__('site.dashboard')}}</li>
+                <li class="active"><i class="fa fa-dashboard"></i>dashboard</li>
             </ol>
         </section>
 
@@ -22,14 +22,16 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>categories counts</h3>
+                            <h3>{{count($category)}}</h3>
 
-                            <p>@lang('site.categories')</p>
+
+
+                            <p>Categories</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
+{{--                        <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
 
@@ -37,14 +39,14 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>products counts</h3>
+                            <h3>{{ count($product)}}</h3>
 
-                            <p>@lang('site.products')</p>
+                            <p>Products</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
+{{--                        <a href="#" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
 
@@ -52,14 +54,14 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>clint count</h3>
+                            <h3>{{count($user)}}</h3>
 
-                            <p>@lang('site.clients')</p>
+                            <p>Users</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-user"></i>
                         </div>
-                        <a href="#" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
+{{--                        <a href="#" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
 
@@ -67,14 +69,14 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>user count</h3>
+                            <h3>order</h3>
 
                             <p>@lang('site.users')</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div>
-                        <a href="#" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
+{{--                        <a href="#" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>--}}
                     </div>
                 </div>
 

@@ -76,8 +76,8 @@ class ProductController extends Controller
         }
 
         Product::create($request_data);
-        session()->flash('success', __('site.added_successfully'));
-        return redirect()->route('dashboard.products.index');
+        session()->flash('success', 'product added successfully');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -106,6 +106,7 @@ class ProductController extends Controller
 
     public function update(Request $request,Product $product)
     {
+
         $request->validate([
             'name'             =>'required',
             'description'       => 'required',
@@ -118,12 +119,6 @@ class ProductController extends Controller
 
         if ($request->image) {
 
-            if ($product->image != 'default.png') {
-
-                Storage::disk('public_uploads')->delete('/product_images/' . $product->image);
-
-            }//end of if
-
             Image::make($request->image)
                 ->resize(300, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -132,11 +127,12 @@ class ProductController extends Controller
 
             $request_data['image'] = $request->image->hashName();
 
-        }//end of if
+        }
+
 
         $product->update($request_data);
-        session()->flash('success', __('site.updated_successfully'));
-        return redirect()->route('dashboard.products.index');
+        session()->flash('success', 'product updated successfully');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -154,7 +150,7 @@ class ProductController extends Controller
         }
 
         $product->delete();
-        session()->flash('success', __('site.deleted_successfully'));
-        return redirect()->route('dashboard.products.index');
+        session()->flash('success', 'product deleted successfully');
+        return redirect()->route('products.index');
     }
 }

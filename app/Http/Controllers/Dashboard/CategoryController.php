@@ -41,7 +41,7 @@ class CategoryController extends Controller
 
         Category::create($request->except(['_token']));
         session()->flash('success',('category added successfully'));
-        return redirect()->route('dashboard.categories.index');
+        return redirect()->route('categories.index');
     }
 
 
@@ -69,11 +69,10 @@ class CategoryController extends Controller
             'description'  => 'required',
 
         ]);
-
-
+//        dd($request->all());
         $category->update($request->all());
-        session()->flash('success',__('site.update_successfully'));
-        return redirect()->route('dashboard.categories.index');
+        session()->flash('success',('category added successfully'));
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -85,7 +84,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        session()->flash('success',__('site.deleted_successfully'));
-        return redirect()->route('dashboard.categories.index');
+        session()->flash('success','category deleted successfully');
+        return redirect()->route('categories.index');
     }
 }
