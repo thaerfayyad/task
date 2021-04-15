@@ -25,6 +25,7 @@ Route::name('web.')->group(function (){
 ////////////////// attachment routes
     Route::get('/send/{id}','Site\ProductController@send')->name('send.pdf');
     Route::get('/excel/','Site\ProductController@excel')->name('send.excel');
+    Route::get('/generate-docx/{id}', 'Site\ProductController@generateDocx')->name('generateDocx');
 
     ///////////login routes
     Route::get('/sign-in','Site\UserController@get_sign_in')->name('signin');

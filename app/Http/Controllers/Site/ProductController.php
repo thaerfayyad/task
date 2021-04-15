@@ -57,7 +57,35 @@ class ProductController extends Controller
         $products = Product::all();
         return view('site.products.productDetails', compact('product', 'products'));
     }
+    public function generateDocx($id)
+    {
+        $product = Product::find($id);
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $section = $phpWord->addSection();
 
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $text = $section->addText('tha');
+        $text = $section->addText('description');
+        $phpWord->save(storage_path('uploads/word/'.$product->name.'.docx'));
+        return response()->download(storage_path('uploads/word/'.$product->name.'.docx'));
+
+    //     $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+    //     $objWriter->save(storage_path('uploads/word/'.$product->name.'.docx'));
+
+    //    $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+    //    // return response()->download(storage_path('uploads/word/'.$product->name.'.docx'));
+
+    //    $objWriter->save(storage_path('uploads/word/'.$product->name.'.docx'));
+    //     try {
+
+    //     } catch (Exception $e) {
+    //     }
+
+
+    //     $section->addImage("https://www.itsolutionstuff.com/frontTheme/images/logo.png");
+    //     $section->addText($description);
+    }
+//////////////////////////////////////
     public function send($id)
     {
         $product = Product::find($id);
