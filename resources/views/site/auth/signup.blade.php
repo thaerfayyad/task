@@ -28,7 +28,7 @@
             <br>
             <h3 class="text-primary text-center">Sign Up</h3>
             <br><br>
-            <form method="POST" action="{{route('signup')}}">
+            <form method="POST" action="{{route('web.signup')}}">
                 @csrf
                 <div class="form_login">
                     <div class="input_div">
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="have_account">
-                        <h6>I already have an account <span><a href="{{route('signin')}}">Login now</a></span></h6>
+                        <h6>I already have an account <span><a href="{{route('web.signin')}}">Login now</a></span></h6>
                     </div>
 
 

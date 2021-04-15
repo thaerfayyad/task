@@ -24,8 +24,23 @@
 
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('web.get.users.signup')}}">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Sign in</a></li>
+
+
+                   @guest
+                     <li class="nav-item"><a class="nav-link" href="{{route('web.get.users.signup')}}">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('web.signin')}}">Sign in</a></li>
+                   @else
+                   <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">   {{ Auth::user()->name }}</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('web.user.logout')}}">logout</a></li>
+
+                    </ul>
+
+
+                    @endguest
+
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

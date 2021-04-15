@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -37,7 +37,7 @@ class UserController extends Controller
 
         $remember_me = $request->has('remember_me') ? true : false;
         if (auth()->guard('web')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
-            return redirect()->route('home');
+            return redirect()->route('web.home');
         }
 
         return redirect()->back()->with(['error' => 'incorrect information ']);
@@ -59,7 +59,7 @@ class UserController extends Controller
     {
         $request->validate([
             'userName' => 'required',
-            'email' => 'required', Rule::unique('users', 'email'),
+            'email' => 'required|unique:users|max:255',
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
 
@@ -73,54 +73,17 @@ class UserController extends Controller
 
         if (auth()->guard('web')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
 
-            return redirect()->route('home');
+            return redirect()->route('web.home');
         }
 
         return redirect()->back()->with(['error' => 'incorrect information ']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function log_out(Request $request)
     {
-        //
+        Auth::guard('web')->logout();
+        return redirect()->route('web.home');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

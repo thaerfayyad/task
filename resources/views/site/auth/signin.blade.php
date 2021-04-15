@@ -29,7 +29,7 @@
             <br>
             <h3 class="text-primary text-center">Sign In</h3>
             <br><br>
-            <form method="POST" action="{{route('users.signIn')}}">
+            <form method="POST" action="{{route('web.users.signIn')}}">
                 @csrf
                 <div class="form_login">
 
